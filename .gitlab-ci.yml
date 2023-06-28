@@ -1,0 +1,11 @@
+deploy_dev:
+ stage: deploy
+ environment:
+   name: dev
+ only:
+   - main
+
+
+ script:
+   - echo "Check the ruby version, then build some Ruby project files:"
+  
