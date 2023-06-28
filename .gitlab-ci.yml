@@ -3,7 +3,7 @@ deploy_dev:
  environment:
    name: dev
  only:
-   - main
+   - master
 
 
  script:
