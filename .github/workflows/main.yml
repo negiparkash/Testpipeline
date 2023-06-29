@@ -1,0 +1,28 @@
+name: Drupal Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest --optimize-autoloader
+
+      - name: Set up Drupal
+        run: |
+          cp sites/default/default.settings.php sites/default/settings.php
+    
+      - name: Run Drupal database updates
+        run: php core/scripts/drupal update:execute
+      
+      - name: Run Drupal commands
+        run: ./vendor/bin/drush cr
