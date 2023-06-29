@@ -10,7 +10,7 @@ web/sites/default/default.settings.php
 web/sites/default/settings.php
 
 
-
+//changes
 
 # Ignore paths that contain user-generated content.
 /web/sites/*/files
